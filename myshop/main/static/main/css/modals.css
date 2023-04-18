@@ -1,0 +1,63 @@
+.switch-field {
+  display: flex;
+  margin-bottom: 36px;
+  overflow: hidden;
+}
+.switch-field input[type="radio"] {
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: -1px;
+}
+.switch-field label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 36px;
+  background-color: #e6e6e6;
+  color: #666;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+.switch-field input[type="radio"]:checked + label {
+  color: #fff;
+  background-color: #474747;
+}
+.switch-field label:first-of-type {
+  border-radius: 4px 0 0 4px;
+}
+.switch-field label:last-of-type {
+  border-radius: 0 4px 4px 0;
+}
+.switch-field label:not(:last-of-type) {
+  border-right: 1px solid #ccc;
+}
+#alert{
+ max-width: 20%;
+ margin:auto;
+ padding:0;
+ padding-top: 1%;
+ padding-bottom:1%;
+ background:#383838;
+ border: 2px solid #4f4f4f;
+ box-shadow: 0px 0px 2px 0px #4f4f4f;
+ color:#ff3d3d
+}
+@media only screen and (max-width: 767px){
+#alert{
+max-width: 35%;
+}
+}
+@media only screen and (max-width: 500px){
+#alert{
+max-width: 45%;
+}
+}

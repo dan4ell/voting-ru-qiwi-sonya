@@ -1,0 +1,140 @@
+{% extends 'main/template.html' %}
+{% load static %}
+{% block head %}<link rel="stylesheet" href="{% static 'main/css/modals.css' %}"> {% endblock %}
+{% block title %}steam{% endblock %}
+{% block body %}
+
+                                    <!--ERROR MODAL-->
+{% if error_message %}<div id="alert" class="text-center alert alert-info alert-dismissible fade show" role="alert">
+                <h5 class="small">Hедопустимое кол-во товара<br><br>будьте внимательнее!</h5>
+              </div>{% endif %}
+
+    <div style="max-width: 65%; margin-left: 17.5%; margin-top: 10%;" class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div style="border: 2px solid #4f4f4f;box-shadow: 0px 0px 2px 0px #4f4f4f;" class="card">
+          <img src="{% static 'main/img/netflix.jpg' %}" class="card-img-top" alt="netflix">
+          <div style="background: #383838" class="card-body text-center">
+            <button type="button" name="netflix" style="width: auto;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#netflixModal" >Купить</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div style="border: 2px solid #4f4f4f;box-shadow: 0px 0px 2px 0px #4f4f4f;" class="card">
+          <img src="{% static 'main/img/kinopoisk.jpg' %}" class="card-img-top" alt="kinopoisk">
+          <div style="background: #383838" class="card-body text-center">
+            <button type="button" name="qiwi" style="width: auto;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#kinopoiskModal" >Купить</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div style="border: 2px solid #4f4f4f;box-shadow: 0px 0px 2px 0px #4f4f4f;" class="card">
+          <img src="{% static 'main/img/ivi.jpeg' %}" class="card-img-top" alt="ivi">
+          <div style="background: #383838" class="card-body text-center">
+            <button type="button" name="proxy" style="width: auto;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#iviModal">Купить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+<!--{% for el in form %}-->
+
+<!--    <div>-->
+<!--        <h3>{{ el.surfshark }}</h3>-->
+<!--        <h3>{{ el.expressVPN }}</h3>-->
+<!--        <h3>{{ el.hideME }}</h3>-->
+<!--    </div>-->
+
+<!--{% endfor %}-->
+
+
+
+
+                                    <!--EXPRESS VPN MODAL WINDOW-->
+
+
+<div class="modal fade" id="netflixModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div style="background: #828282" class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">NetFlix</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="post">
+        {% csrf_token %}
+          <div style="height: 500px; background: #a3a3a3; color: #2b2b2b" class="modal-body text-center">
+            <img style="width: 50%;border-radius:5%;" src="{% static 'main/img/netflix.jpg'%}" alt="netflix">
+            <h5 style="padding-top:5%;">Кол-во товара: {% for el in form %} {{ el.netflix }} {% endfor %}шт.</h5>
+            <label for="num">Введи кол-во товара для покупки</label>
+            <input required id="num" name="numnetflix" type="number">
+            <p><br>Стоимость 1 подписки - 100р<br>Длительность подписки - 1 месяц<br>При покупке подписки больше 1 месяцы суммируются в 1 подписку</p>
+          </div>
+          <div class="modal-footer" style="justify-content:flex-start;">
+            <button type="submit" name="buynetflix" class="btn btn-primary">Купить</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+                                        <!--HIDEME MODAL WINDOW-->
+
+<div class="modal fade" id="kinopoiskModal" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div style="background: #828282" class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel2">Kinopoisk</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="post">
+        {% csrf_token %}
+          <div style="height: 500px; background: #a3a3a3; color: #2b2b2b" class="modal-body text-center">
+            <img style="width: 50%;border-radius:5%;" src="{% static 'main/img/kinopoisk.jpg'%}" alt="kinopoisk">
+            <h5 style="padding-top:5%;">Кол-во товара: {% for el in form %} {{ el.kinopoisk }} {% endfor %}шт.</h5>
+            <label for="num">Введи кол-во товара для покупки</label>
+            <input required name="numkinopoisk" type="number">
+            <p><br>Стоимость 1 подписки - 100р<br>Длительность подписки - 1 месяц<br>При покупке подписки больше 1 месяцы суммируются в 1 подписку</p>
+          </div>
+          <div class="modal-footer" style="justify-content:flex-start;">
+            <button type="submit" name="buykinopoisk" class="btn btn-primary">Купить</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+                                          <!--SURFSHARK MODAL WINDOW-->
+
+<div class="modal fade" id="iviModal" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div style="background: #828282" class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel3">IVI</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="post">
+        {% csrf_token %}
+          <div style="height: 500px; background: #a3a3a3; color: #2b2b2b" class="modal-body text-center">
+            <img style="width: 50%;border-radius:5%;" src="{% static 'main/img/ivi.jpeg'%}" alt="ivi">
+            <h5 style="padding-top:5%;">Кол-во товара: {% for el in form %} {{ el.ivi }} {% endfor %}шт.</h5>
+            <label for="num">Введи кол-во товара для покупки</label>
+            <input required name="numivi" type="number">
+            <p><br>Стоимость 1 подписки - 100р<br>Длительность подписки - 1 месяц<br>При покупке подписки больше 1 месяцы суммируются в 1 подписку</p>
+          </div>
+          <div class="modal-footer" style="justify-content:flex-start;">
+            <button type="submit" name="buyivi" class="btn btn-primary">Купить</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

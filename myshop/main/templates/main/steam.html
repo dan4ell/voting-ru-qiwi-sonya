@@ -1,0 +1,172 @@
+{% extends 'main/template.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/css/modals.css' %}"> {% endblock %}
+{% block title %}steam{% endblock %}
+{% block body %}
+    <div style="max-width: 65%; margin-left: 17.5%; margin-top: 10%;" class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div style="border: 2px solid #4f4f4f;box-shadow: 0px 0px 2px 0px #4f4f4f;" class="card">
+          <img style="background: #1f1d1d" src="{% static 'main/img/lowmmr.png' %}" class="card-img-top" alt="lowmmr">
+          <div style="background: #383838" class="card-body text-center">
+              <p style="color: #737373">0-2500mmr STEAM</p>
+            <button type="button" name="lowmmr" style="width: auto;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#lowaccountModal" >Купить</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div style="border: 2px solid #4f4f4f;box-shadow: 0px 0px 2px 0px #4f4f4f;" class="card">
+          <img style="background: #1f1d1d" src="{% static 'main/img/mediummmr.png' %}" class="card-img-top" alt="mediummmr">
+          <div style="background: #383838" class="card-body text-center">
+              <p style="color: #737373">2500-4800mmr STEAM</p>
+            <button type="button" name="mediummmr" style="width: auto;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#mediumaccountModal" >Купить</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div style="border: 2px solid #4f4f4f;box-shadow: 0px 0px 2px 0px #4f4f4f;" class="card">
+          <img style="background: #1f1d1d" src="{% static 'main/img/Highmmr.png' %}" class="card-img-top" alt="Highmmr">
+          <div style="background: #383838" class="card-body text-center">
+              <p style="color: #737373">4800+mmr STEAM</p>
+            <button type="button" name="proxy" style="width: auto;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#highaccountModal">Купить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+                                    <!--LOW MMR ACCOUNT MODAL WINDOW-->
+
+
+<div class="modal fade" id="lowaccountModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div style="background: #828282" class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Low MMR steam</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="post">
+        {% csrf_token %}
+          <div style="height: 500px; background: #a3a3a3; color: #2b2b2b" class="modal-body text-center">
+            <img style="width: 50%;border-radius:5%;" src="{% static 'main/img/lowmmr.png'%}" alt="low">
+
+                                        <!--ВЫБОР MMR-->
+
+              <h5>Подбери свой MMR</h5>
+              <div id="column" style="flex-direction: column;margin-left: 33%;" class="switch-field">
+                  <input required type="radio" id="300mmr" name="switch" value="300">
+                  <label for="300mmr" class="active-color">300 ммр</label>
+                  <input type="radio" id="600mmr" name="switch" value="600">
+                  <label for="600mmr" class="inactive-color">600 ммр</label>
+                  <input type="radio" id="900mmr" name="switch" value="900">
+                  <label for="900mmr" class="active-color">900 ммр</label>
+                  <input type="radio" id="1200mmr" name="switch" value="1200">
+                  <label for="1200mmr" class="inactive-color">1200 ммр</label>
+                  <input type="radio" id="1500mmr" name="switch" value="1500">
+                  <label for="1500mmr" class="active-color">1500 ммр</label>
+                  <input type="radio" id="1800mmr" name="switch" value="1800">
+                  <label for="1800mmr" class="inactive-color">1800 ммр</label>
+                  <input type="radio" id="2100mmr" name="switch" value="2100">
+                  <label for="2100mmr" class="active-color">2100 ммр</label>
+                  <input type="radio" id="2500mmr" name="switch" value="2500">
+                  <label for="2500mmr" class="inactive-color">2500 ммр</label>
+              </div>
+                    <p><br>Цена колеблится в зависимости от MMR<br>1 mmr = 1 rub</p>
+          </div>
+          <div class="modal-footer" style="justify-content:flex-start;">
+            <button type="submit" name="buylowmmr" class="btn btn-primary">Купить</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+                                        <!--MEDIUM MMR ACCOUNT MODAL WINDOW-->
+
+<div class="modal fade" id="mediumaccountModal" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div style="background: #828282" class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel2">Medium MMR steam </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="post">
+        {% csrf_token %}
+          <div style="height: 500px; background: #a3a3a3; color: #2b2b2b" class="modal-body text-center">
+            <img style="width: 50%;border-radius:5%;" src="{% static 'main/img/mediummmr.png'%}" alt="medium">
+
+                                        <!--ВЫБОР MMR-->
+
+              <h5>Подбери свой MMR</h5>
+              <div style="flex-direction: column;margin-left: 33%;" class="switch-field">
+                  <input required type="radio" id="2900mmr" name="switch" value="2900">
+                  <label for="2900mmr" class="active-color">2900 ммр</label>
+                  <input type="radio" id="3200mmr" name="switch" value="3200">
+                  <label for="3200mmr" class="inactive-color">3200 ммр</label>
+                  <input type="radio" id="3500mmr" name="switch" value="3500">
+                  <label for="3500mmr" class="active-color">3500 ммр</label>
+                  <input type="radio" id="3800mmr" name="switch" value="3800">
+                  <label for="3800mmr" class="inactive-color">3800 ммр</label>
+                  <input type="radio" id="4200mmr" name="switch" value="4200">
+                  <label for="4200mmr" class="active-color">4200 ммр</label>
+                  <input type="radio" id="4400mmr" name="switch" value="4400">
+                  <label for="4400mmr" class="inactive-color">4400 ммр</label>
+                  <input type="radio" id="4600mmr" name="switch" value="4600">
+                  <label for="4600mmr" class="active-color">4600 ммр</label>
+                  <input type="radio" id="4800mmr" name="switch" value="4800">
+                  <label for="4800mmr" class="inactive-color">4800 ммр</label>
+              </div>
+                    <p><br>Цена Medium MMR аккаунтов колеблится в зависимости от MMR<br>1 mmr = 2 rub</p>
+          </div>
+          <div class="modal-footer" style="justify-content:flex-start;">
+            <button type="submit" name="buymediummmr" class="btn btn-primary">Купить</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+                                          <!--HIGH MMR ACCOUNT MODAL WINDOW-->
+
+<div class="modal fade" id="highaccountModal" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div style="background: #828282" class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel3">High MMR steam </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="post">
+        {% csrf_token %}
+          <div style="height: 500px; background: #a3a3a3; color: #2b2b2b" class="modal-body text-center">
+            <img style="width: 50%;border-radius:5%;" src="{% static 'main/img/Highmmr.png'%}" alt="high">
+
+                                        <!--ВЫБОР MMR-->
+
+              <h5>Подбери свой MMR</h5>
+              <div style="flex-direction: column;margin-left: 33%;" class="switch-field">
+                  <input required type="radio" id="5000mmr" name="switch" value="5000">
+                  <label for="5000mmr" class="active-color">5000 ммр</label>
+                  <input type="radio" id="5500mmr" name="switch" value="5500">
+                  <label for="5500mmr" class="inactive-color">5500 ммр</label>
+                  <input type="radio" id="6000mmr" name="switch" value="6000">
+                  <label for="6000mmr" class="active-color">6000 ммр</label>
+                  <input type="radio" id="6500mmr" name="switch" value="6500">
+                  <label for="6500mmr" class="inactive-color">6500 ммр</label>
+                  <input type="radio" id="7000mmr" name="switch" value="7000">
+                  <label for="7000mmr" class="active-color">7000 ммр</label>
+                  <input type="radio" id="8000mmr" name="switch" value="8000">
+                  <label for="8000mmr" class="inactive-color">8000 ммр</label>
+                  <input type="radio" id="8500mmr" name="switch" value="8500">
+                  <label for="8500mmr" class="active-color">8500 ммр</label>
+                  <input type="radio" id="9000mmr" name="switch" value="9000">
+                  <label for="9000mmr" class="inactive-color">9000 ммр</label>
+              </div>
+                    <p><br>Цена High MMR аккаунтов колеблится в зависимости от MMR<br>1 mmr = 3 rub</p>
+          </div>
+          <div class="modal-footer" style="justify-content:flex-start;">
+            <button type="submit" name="buyhighmmr" class="btn btn-primary">Купить</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
