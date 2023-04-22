@@ -44,7 +44,7 @@ async def handle_new_message(event):
         # проотец конвертирования в ГС, оставил на всякий случай
 
         #если месседжей от мамонта меньше пяти
-        time.sleep(30)
+        time.sleep(30) #таймаут между месседжами
         if sent_messages.get(user_id, 0) < 5:
             if isinstance(responses[state], str) and responses[state].endswith('.oga'):
                 await client.send_file(
