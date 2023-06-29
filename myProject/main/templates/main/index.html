@@ -1,0 +1,13 @@
+{% extends 'main/template.html' %}
+{% load static %}
+{% block title %} Index {% endblock %}
+{% block body %}
+<div class="hero-content">
+       <h1>Natural Forest <span>HTML / CSS</span></h1>
+        <div class="hero-content__p">Creating a beautiful 3D website with a 'lens effect'</div>
+         <form method="post">
+           {% csrf_token %}
+           <button name="button-start" type="submit" class="button-start">Start Learning</button>
+         </form>
+</div>
+{% endblock %}
