@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700|Source+Sans+Pro:400,600,700&display=swap");
 body {
-  background: #ddeefc;
+  background: #83D283;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 16px;
 }
@@ -120,7 +120,7 @@ margin-top: 50px;
 .card-form__button {
   width: 100%;
   height: 55px;
-  background: #2364d2;
+  background: #00b849;
   border: none;
   border-radius: 5px;
   font-size: 22px;

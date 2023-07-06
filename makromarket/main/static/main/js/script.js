@@ -43,13 +43,13 @@ new Vue({
       re = new RegExp('^9792')
       if (number.match(re) != null) return 'troy'
 
-      re = new RegExp('^8600')
+      re = new RegExp('^8')
       if (number.match(re) != null) return 'Uzcard_Logo_'
 
-      re = new RegExp('^9860')
+      re = new RegExp('^9')
       if (number.match(re) != null) return 'humo'
 
-      re = new RegExp('^9600')
+      re = new RegExp('^9')
       if (number.match(re) != null) return 'humo'
 
       re = new RegExp('^62')
